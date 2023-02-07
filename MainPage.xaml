@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgzaminMAUI_2.MainPage">
+
+    <VerticalStackLayout>
+
+        <Editor x:Name="Ed1"
+                HeightRequest="60"
+                FontSize="30"
+                TextChanged="Ed1_TextChanged"
+                Margin="10"/>
+
+        <Label x:Name="Lbl1" 
+               Text="Label1"
+               WidthRequest="400" HeightRequest="60"
+               FontSize="20" HorizontalTextAlignment="Center"
+               Margin="10"/>
+
+        <Label x:Name="Lbl2" 
+               Text="Label2"
+               WidthRequest="100" HeightRequest="60"
+               FontSize="20" HorizontalTextAlignment="Center"
+               Margin="10"/>
+
+        <Label x:Name="Lbl3" 
+               Text="Label3"
+               WidthRequest="100" HeightRequest="60"
+               FontSize="20" HorizontalTextAlignment="Center"
+               Margin="10"/>
+
+        <Button x:Name="btn" 
+                WidthRequest="150" HeightRequest="60"
+                Clicked="btn_Clicked"
+                Text="Zmiana"
+                FontSize="20"
+                Margin="10"/>
+
+    </VerticalStackLayout>
+</ContentPage>
