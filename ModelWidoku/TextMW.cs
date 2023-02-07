@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace EgzaminMAUI_2.ModelWidoku
 {
@@ -17,7 +18,7 @@ namespace EgzaminMAUI_2.ModelWidoku
             set
             {
                 model.EdText = value;
-                OnPropertyChanged(nameof(edTextMW));
+                onPropertyChanged(nameof(edTextMW));
             }
         }
 
@@ -27,7 +28,7 @@ namespace EgzaminMAUI_2.ModelWidoku
             set
             {
                 model.Length = value;
-                OnPropertyChanged(nameof(LenghtMW));
+                onPropertyChanged(nameof(LengthMW));
             }
         }
 
@@ -37,10 +38,52 @@ namespace EgzaminMAUI_2.ModelWidoku
             set
             {
                 model.Vowels = value;
-                OnPropertyChanged(nameof(VowelsMW));
+                onPropertyChanged(nameof(VowelsMW));
             }
         }
 
+        public Color LblColorMW
+        {
+            get
+            {
+                if (model.Length > 30)
+                {
+                    return Color.FromRgb(255, 0, 0);
+                }
+                else { return Color.FromRgb(0, 0, 0); }
+            }
+            set
+            {
+                onPropertyChanged(nameof(LblColorMW));
+            }
+        }
+
+        //Implementacja interfejsu INotifyPropretyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void onPropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
+        //Własność pola ICommand 
+        //Instancja polecenia 'ZmianaZapisu'
+        private ICommand ZmianaNapisu;
+        public ICommand ZmianaNapisu
+        {
+            get
+            {
+                //Zabezpieczenie przed powielaniem egzemplarzy klasy polecenia
+                if (ZmianaNapisu != "Uniwersytet Mikołaja Kopernika")
+                {
+                    ZmianaNapisu = new PolecenieZmiany(this);
+                }
+                return ZmianaNapisu;
+            }
+        }
 
     }
 }

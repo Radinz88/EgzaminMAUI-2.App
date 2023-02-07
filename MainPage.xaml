@@ -18,27 +18,28 @@
                 Margin="10"/>
 
         <Label x:Name="Lbl1" 
-               Text="Label1"
+               Text="{Binding edTextMW}"
+               TextColor="{Binding LblColorMW}"
                WidthRequest="400" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Label x:Name="Lbl2" 
-               Text="Label2"
+               Text="{Binding LengthMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Label x:Name="Lbl3" 
-               Text="Label3"
+               Text="{Binding VowelsMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Button x:Name="btn" 
                 WidthRequest="150" HeightRequest="60"
-                Clicked="btn_Clicked"
-                Text="Zmiana"
+                Clicked="{Binding ZmianaNapisu}"
+                Text="Zmiana tekstu"
                 FontSize="20"
                 Margin="10"/>
 
