@@ -11,12 +11,13 @@ namespace EgzaminMAUI_2
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
+            return value.ToString();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
+            int integer = Int16.Parse((string)value);
+            return integer;
         }
     }
 }

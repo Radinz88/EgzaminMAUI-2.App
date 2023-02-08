@@ -8,14 +8,44 @@ namespace EgzaminMAUI_2.Model
 {
     public class TextModel
     {
-        string edText;
-        int lenght, vowels;
-        Color lblColor;
+        private string edText;
+        private int lenght, vowels;
+        private Color lblColor;
 
-        public string EdText { get; set; }
-        public int Length { get; set; }
-        public int Vowels { get; set; }
-        public Color LblColor { get; set; }
-
+        public string EdText 
+        { 
+            get 
+            { return EdText; } 
+            set 
+            { edText = value; } 
+        }
+        public int Length 
+        { 
+            get 
+            {
+                return lenght;
+            }
+            set 
+            {
+                lenght = edText.Length;
+            }
+        }
+        public int Vowels 
+        { 
+            get { return vowels; } 
+            set { vowels = edText.Count(c => "aąeęioóuy".Contains(c)); } 
+        }
+        public Color LblColor 
+        {
+            get { return lblColor; } 
+            set 
+            {
+                if (lenght > 30)
+                {
+                    lblColor = Color.FromRgb(255, 0, 0);
+                }
+                else { lblColor = Color.FromRgb(0, 0, 0); }
+            }
+        }
     }
 }

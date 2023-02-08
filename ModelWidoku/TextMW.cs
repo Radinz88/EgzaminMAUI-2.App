@@ -12,13 +12,13 @@ namespace EgzaminMAUI_2.ModelWidoku
     {
         private Model.TextModel model;
 
-        public string edTextMW
+        public string EdTextMW
         {
             get => model.EdText;
             set
             {
                 model.EdText = value;
-                onPropertyChanged(nameof(edTextMW));
+                onPropertyChanged(nameof(EdTextMW));
             }
         }
 
@@ -27,7 +27,7 @@ namespace EgzaminMAUI_2.ModelWidoku
             get => model.Length;
             set
             {
-                model.Length = value;
+                model.Length = model.EdText.Length;
                 onPropertyChanged(nameof(LengthMW));
             }
         }
@@ -37,23 +37,22 @@ namespace EgzaminMAUI_2.ModelWidoku
             get => model.Vowels;
             set
             {
-                model.Vowels = value;
+                model.Vowels = model.EdText.Count(x => "aeiouy".Contains(x));
                 onPropertyChanged(nameof(VowelsMW));
             }
         }
 
         public Color LblColorMW
         {
-            get
-            {
-                if (model.Length > 30)
-                {
-                    return Color.FromRgb(255, 0, 0);
-                }
-                else { return Color.FromRgb(0, 0, 0); }
-            }
+            get { return model.LblColor; }
             set
             {
+
+                if (model.Length > 30)
+                {
+                    model.LblColor = Color.FromRgb(255, 0, 0);
+                }
+                else { model.LblColor = Color.FromRgb(0, 0, 0); }
                 onPropertyChanged(nameof(LblColorMW));
             }
         }
@@ -71,17 +70,17 @@ namespace EgzaminMAUI_2.ModelWidoku
 
         //Własność pola ICommand 
         //Instancja polecenia 'ZmianaZapisu'
-        private ICommand ZmianaNapisu;
+        private ICommand zmianaNapisu;
         public ICommand ZmianaNapisu
         {
             get
             {
                 //Zabezpieczenie przed powielaniem egzemplarzy klasy polecenia
-                if (ZmianaNapisu != "Uniwersytet Mikołaja Kopernika")
+                if (zmianaNapisu != null)
                 {
-                    ZmianaNapisu = new PolecenieZmiany(this);
+                    zmianaNapisu = new PolecenieZmiany(this);
                 }
-                return ZmianaNapisu;
+                return zmianaNapisu;
             }
         }
 
