@@ -18,32 +18,32 @@
         <Editor x:Name="Ed1"
                 HeightRequest="60"
                 FontSize="30"
-                TextChanged="Ed1_TextChanged"
+                Text="{Binding EdTextMW}"
                 Margin="10"/>
 
         <Label x:Name="Lbl1" 
-               Text="{Binding edTextMW}"
+               Text="{Binding EdTextMW}"
                TextColor="{Binding LblColorMW}"
                WidthRequest="400" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Label x:Name="Lbl2" 
-               Text="{Binding LengthMW, Converter={StaticResource i2s}}"
+               Text="{Binding LengthMW, Mode=OneWay, Converter={StaticResource i2s}}"
                TextColor="{Binding LblColorMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Label x:Name="Lbl3" 
-               Text="{Binding VowelsMW, Converter={StaticResource i2s}}"
+               Text="{Binding VowelsMW, Mode=OneWay, Converter={StaticResource i2s}}"
                TextColor="{Binding LblColorMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Button x:Name="btn" 
-                WidthRequest="150" HeightRequest="60"
+                WidthRequest="200" HeightRequest="60"
                 Command="{Binding ZmianaNapisu}"
                 Text="Zmiana tekstu"
                 FontSize="20"

@@ -10,7 +10,7 @@ namespace EgzaminMAUI_2.ModelWidoku
 {
     class TextMW : INotifyPropertyChanged
     {
-        private Model.TextModel model;
+        private Model.TextModel model = new("");
 
         public string EdTextMW
         {
@@ -19,6 +19,9 @@ namespace EgzaminMAUI_2.ModelWidoku
             {
                 model.EdText = value;
                 onPropertyChanged(nameof(EdTextMW));
+                LengthMW = model.Length;
+                VowelsMW = model.Vowels;
+                LblColorMW= model.LblColor;
             }
         }
 
@@ -27,7 +30,6 @@ namespace EgzaminMAUI_2.ModelWidoku
             get => model.Length;
             set
             {
-                model.Length = model.EdText.Length;
                 onPropertyChanged(nameof(LengthMW));
             }
         }
@@ -37,7 +39,6 @@ namespace EgzaminMAUI_2.ModelWidoku
             get => model.Vowels;
             set
             {
-                model.Vowels = model.EdText.Count(x => "aeiouy".Contains(x));
                 onPropertyChanged(nameof(VowelsMW));
             }
         }
@@ -47,8 +48,6 @@ namespace EgzaminMAUI_2.ModelWidoku
             get { return model.LblColor; }
             set
             {
-
-                model.LblColor = model.Length > 30 ? Color.FromRgb(255, 0, 0) : Color.FromRgb(0, 0, 0);
                 onPropertyChanged(nameof(LblColorMW));
             }
         }
@@ -73,6 +72,10 @@ namespace EgzaminMAUI_2.ModelWidoku
             {
                 //Zabezpieczenie przed powielaniem egzemplarzy klasy polecenia
                 if (zmianaNapisu != null)
+                { 
+                    return zmianaNapisu; 
+                }
+                else
                 {
                     zmianaNapisu = new PolecenieZmiany(this);
                 }
