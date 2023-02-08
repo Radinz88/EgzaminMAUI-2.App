@@ -40,11 +40,14 @@ namespace EgzaminMAUI_2.Model
             get { return lblColor; } 
             set 
             {
-                if (lenght > 30)
+                lblColor = new Color(0, 0, 0);
+
+                int condition_value = Length;
+                if (condition_value > 30)
                 {
-                    lblColor = Color.FromRgb(255, 0, 0);
+                    lblColor = new Color(255, 0, 0);
                 }
-                else { lblColor = Color.FromRgb(0, 0, 0); }
+ 
             }
         }
     }

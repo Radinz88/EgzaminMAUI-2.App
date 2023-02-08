@@ -44,11 +44,11 @@ namespace EgzaminMAUI_2.ModelWidoku
 
         public Color LblColorMW
         {
-            get { return LblColorMW; }
+            get { return model.LblColor; }
             set
             {
 
-                LblColorMW = model.LblColor;
+                model.LblColor = model.Length > 30 ? Color.FromRgb(255, 0, 0) : Color.FromRgb(0, 0, 0);
                 onPropertyChanged(nameof(LblColorMW));
             }
         }

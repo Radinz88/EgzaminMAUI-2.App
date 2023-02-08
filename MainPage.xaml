@@ -9,6 +9,10 @@
         <mw:TextMW/>
     </ContentPage.BindingContext>
 
+    <ContentPage.Resources>
+        <w:IntToStringConverter x:Key="i2s"/>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
 
         <Editor x:Name="Ed1"
@@ -25,13 +29,15 @@
                Margin="10"/>
 
         <Label x:Name="Lbl2" 
-               Text="{Binding LengthMW}"
+               Text="{Binding LengthMW, Converter={StaticResource i2s}}"
+               TextColor="{Binding LblColorMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
 
         <Label x:Name="Lbl3" 
-               Text="{Binding VowelsMW}"
+               Text="{Binding VowelsMW, Converter={StaticResource i2s}}"
+               TextColor="{Binding LblColorMW}"
                WidthRequest="100" HeightRequest="60"
                FontSize="20" HorizontalTextAlignment="Center"
                Margin="10"/>
